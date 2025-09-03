@@ -1,6 +1,6 @@
 #include "Encryptor.h" 
 #include "DirWalker.h" 
-#include "Aes256.h" 
+#include "Des3.h"
 #include <iostream> 
 #include <cstdio>
 
@@ -41,12 +41,12 @@ void Encryptor::processFile(const std::string& filePath, bool encrypt)
     if (encrypt) 
     { 
         std::cout << "Encrypting: " << filePath << std::endl; 
-        ok = Aes256::encryptFile(filePath, tempPath, setted_key); 
+        ok = Des3::encryptFile(filePath, tempPath, setted_key);
     } 
     else 
     { 
         std::cout << "Decrypting: " << filePath << std::endl; 
-        ok = Aes256::decryptFile(filePath, tempPath, setted_key); 
+        ok = Des3::decryptFile(filePath, tempPath, setted_key);
     } 
 
     if (ok) 
